@@ -146,31 +146,4 @@ git push
 
 ---
 
-## 6. (Optional) Hosting it live
 
-- **Backend (FastAPI)**: Render, Railway, or Fly.io all support Python
-  web services directly from a GitHub repo. Set the start command to
-  `uvicorn main:app --host 0.0.0.0 --port $PORT`, add a `DATABASE_URL`
-  environment variable pointing at a managed Postgres instance (Render
-  and Railway both offer one-click Postgres add-ons), and make sure
-  `train_model.py` runs once (e.g. as a build/release step) so
-  `models/model.pkl` exists before the API starts.
-- **Frontend (React)**: Vercel or Netlify — connect the GitHub repo,
-  set the build command to `npm run build` and the output directory to
-  `build`, and set `REACT_APP_API_URL` to your deployed backend URL in
-  the project's environment variables.
-- **Database**: Render/Railway/Supabase/Neon all offer free-tier managed
-  PostgreSQL — copy the connection string they give you into
-  `DATABASE_URL` on the backend service.
-
----
-
-## 7. Extending it (matches the 8-week plan)
-
-- Add hyperparameter tuning / cross-validation in `train_model.py`
-  (`GridSearchCV` or `RandomizedSearchCV`) — Week 6.
-- Add a `/api/retrain` endpoint to trigger retraining from the UI.
-- Add user accounts/sessions to the `database.py` models if you want
-  per-user prediction history instead of a global log.
-- Swap in XGBoost by adding `xgboost` to `requirements.txt` and a
-  third candidate model in `train_and_compare()`.
