@@ -1,0 +1,20 @@
+# Python
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+backend/predictiq.db
+backend/models/*.pkl
+backend/models/*.png
+backend/models/metrics.json
+
+# Node / React
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# General
+.DS_Store
+*.log
+.env
